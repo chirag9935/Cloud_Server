@@ -324,8 +324,9 @@ body::-webkit-scrollbar {
     border-color 0.2s;
 }
 .btn-hero-outline:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.6);
+  background: #fff;
+  border-color: #fff;
+  color: var(--accent);
 }
 
 .btn-hero-primary {
@@ -552,6 +553,14 @@ body::-webkit-scrollbar {
   max-width: 560px;
   width: 100%;
 }
+/* Desktop sidebar image — shown by default */
+.about-images-desktop {
+  display: block;
+}
+/* Mobile inline image — hidden by default */
+.about-images-mobile {
+  display: none;
+}
 .img-collage {
   position: relative;
   width: 100%;
@@ -600,6 +609,11 @@ body::-webkit-scrollbar {
     rgba(16, 97, 249, 0)
   );
   border-radius: 2px;
+}
+/* Left-side line — hidden on desktop, shown centered on mobile */
+.about-kicker-line--rev {
+  display: none;
+  transform: scaleX(-1);
 }
 .about-content h2 {
   font-size: 34px;
@@ -1430,23 +1444,33 @@ body::-webkit-scrollbar {
   .services-grid .service-card:last-child {
     border-bottom: none;
   }
+  /* About section: collapse to single column, center everything */
   .about-section {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 40px;
+    gap: 28px;
   }
-  .about-images {
-    max-width: 520px;
+  /* Hide the sidebar image */
+  .about-images-desktop {
+    display: none;
+  }
+  /* Show the inline image between h2 and p */
+  .about-images-mobile {
+    display: block;
     width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
   }
   .about-content {
-    max-width: 600px;
+    max-width: 100%;
     width: 100%;
-    align-items: center;
   }
   .about-kicker {
     justify-content: center;
+  }
+  .about-kicker-line--rev {
+    display: block;
   }
   .about-content h2 {
     font-size: 30px;
@@ -1501,8 +1525,15 @@ body::-webkit-scrollbar {
   .service-card p {
     max-width: 100%;
   }
-  .about-images {
-    max-width: 400px;
+  .about-section {
+    text-align: center;
+    align-items: center;
+  }
+  .about-images-mobile {
+    max-width: 360px;
+  }
+  .about-kicker {
+    justify-content: center;
   }
   .about-content h2 {
     font-size: 28px;
@@ -1593,13 +1624,20 @@ body::-webkit-scrollbar {
   .services-header h2 {
     font-size: 26px;
   }
+  .about-section {
+    text-align: center;
+    align-items: center;
+  }
+  .about-kicker {
+    justify-content: center;
+  }
   .about-content h2 {
     font-size: 24px;
   }
   .about-content p {
     font-size: 15px;
   }
-  .about-images {
+  .about-images-mobile {
     max-width: 100%;
   }
   .testimonials-heading h2 {

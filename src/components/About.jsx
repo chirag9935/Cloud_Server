@@ -1,7 +1,8 @@
 export default function About() {
   return (
     <section id="about" className="about-section">
-      <div className="about-images">
+      {/* Desktop: image sits in the left column */}
+      <div className="about-images about-images-desktop">
         <div className="img-collage">
           <img
             src="/about_collage.png"
@@ -12,6 +13,7 @@ export default function About() {
 
       <div className="about-content">
         <div className="about-kicker">
+          <span className="about-kicker-line about-kicker-line--rev"></span>
           <span className="about-kicker-text">ABOUT US</span>
           <span className="about-kicker-line"></span>
         </div>
@@ -20,6 +22,16 @@ export default function About() {
           Empowering Businesses with Smart and Scalable{' '}
           <span className="text-blue">Cloud Solutions</span>
         </h2>
+
+        {/* Mobile: image sits between h2 and p */}
+        <div className="about-images about-images-mobile">
+          <div className="img-collage">
+            <img
+              src="/about_collage.png"
+              alt="Cloud Technology Collage"
+            />
+          </div>
+        </div>
 
         <p>
           We are a forward-thinking cloud solutions provider dedicated to helping
