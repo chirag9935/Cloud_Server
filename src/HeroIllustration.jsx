@@ -24,7 +24,6 @@ const ILLUS_CSS = `
     height: auto;
     max-height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 24px 48px rgba(0,0,0,0.55));
     position: relative;
     z-index: 2;
   }
@@ -37,16 +36,16 @@ const ILLUS_CSS = `
 
   .hi-cube-right    { top: 22%; right: 5%;  width: 80px; }
   .hi-stack-bl      { left: 1%; bottom: 7%; width: 102px; }
-  .hi-group7-right  { top: 35%; right: 0;   width: 70px; }
-  .hi-cloud-bl      { left: 30%; top: 90%;  width: 69px; }
-  .hi-cloud-tr      { left: 78%; top: 2%;   width: 69px; }
-  .hi-wave-bottom   { left: 25%; bottom: 2%;width: 19px; }
+  .hi-group7-right  { top: 35%; right: 3%;   width: 70px; }
+  .hi-cloud-bl      { left: 30%; top: 87%;  width: 69px; }
+  .hi-cloud-tr      { left: 78%; top: 3%;   width: 69px; }
+  .hi-wave-bottom   { left: 24%; bottom: 1%; width: 19px; }
 
   @keyframes hiFarRight   { from{opacity:0;transform:translateX(60px)}       to{opacity:1;transform:translateX(0)} }
   @keyframes hiFarDiagTR  { from{opacity:0;transform:translate(85px,-65px)}   to{opacity:1;transform:translate(0,0)} }
   @keyframes hiFarUp      { from{opacity:0;transform:translateY(88px)}        to{opacity:1;transform:translateY(0)} }
   @keyframes hiFromTop    { from{opacity:0;transform:translateY(-44px)}       to{opacity:1;transform:translateY(0)} }
-  @keyframes hiMidUp      { from{opacity:0;transform:translateY(52px)}        to{opacity:1;transform:translateY(0)} }
+  @keyframes hiMidUp      { from{opacity:0;transform:translateY(60px)}        to{opacity:1;transform:translateY(0)} }
   @keyframes hiShortUp    { from{opacity:0;transform:translateY(22px)}        to{opacity:1;transform:translateY(0)} }
   
 
@@ -129,45 +128,38 @@ export default function HeroIllustration({ style, className }) {
       {show && (
         <div key={animKey}>
           {/* Bottom-right server cube */}
-          <div className="hi-elem hi-d" style={{ top: '80%', right: '20%' }}>
-            <img src="/Group.png" alt="Server" width="48"
-              style={{ filter: 'drop-shadow(0 6px 16px rgba(37,99,235,0.55))' }} />
+          <div className="hi-elem hi-d" style={{ top: '81%', right: '24%' }}>
+            <img src="/Group.png" alt="Server" width="48" />
           </div>
 
           {/* Bottom-left server stack */}
-          <div className="hi-elem hi-c" style={{ bottom: '10%', left: '-4%' }}>
-            <img src="/Group (2).png" alt="Server Stack" width="102"
-              style={{ filter: 'drop-shadow(0 8px 20px rgba(37,99,235,0.50))' }} />
+          <div className="hi-elem hi-c" style={{ bottom: '6%', left: '2%' }}>
+            <img src="/Group (2).png" alt="Server Stack" width="102" />
           </div>
 
           {/* Bottom-left wave sparks */}
-          <div className="hi-elem hi-c" style={{ bottom: '31%', left: '-7%' }}>
-            <img src="/Group_dots.png" alt="Server Wave" width="48"
-              style={{ filter: 'drop-shadow(0 8px 20px rgba(37,99,235,0.50))' }} />
+          <div className="hi-elem hi-c" style={{ bottom: '28%', left: '1%' }}>
+            <img src="/Group_dots.png" alt="Server Wave" width="41" />
           </div>
 
           {/* Right cloud group */}
           <div className="hi-elem hi-a hi-group7-right">
-            <img src="/Group 7.png" alt="Cloud" width="72"
-              style={{ filter: 'drop-shadow(0 4px 12px rgba(255,255,255,0.25))' }} />
+            <img src="/Group 7.png" alt="Cloud" width="72" />
           </div>
 
           {/* Bottom-left cloud */}
           <div className="hi-elem hi-d hi-cloud-bl">
-            <img src="/Vector.png" alt="Cloud" width="69"
-              style={{ filter: 'drop-shadow(0 4px 10px rgba(255,255,255,0.22))' }} />
+            <img src="/Vector.png" alt="Cloud" width="69" />
           </div>
 
           {/* Bottom wave sparks */}
           <div className="hi-elem hi-c hi-wave-bottom">
-            <img src="/Group (1).png" alt="Wave" width="19"
-              style={{ filter: 'drop-shadow(0 4px 10px rgba(255,255,255,0.18))' }} />
+            <img src="/Group (1).png" alt="Wave" width="19" />
           </div>
 
           {/* Top-right cloud */}
           <div className="hi-elem hi-b hi-cloud-tr">
-            <img src="/Vector.png" alt="Cloud" width="69"
-              style={{ filter: 'drop-shadow(0 4px 10px rgba(255,255,255,0.22))' }} />
+            <img src="/Vector.png" alt="Cloud" width="69" />
           </div>
         </div>
       )}
