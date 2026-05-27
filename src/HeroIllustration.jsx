@@ -42,40 +42,21 @@ const ILLUS_CSS = `
   .hi-cloud-tr      { left: 78%; top: 2%;   width: 69px; }
   .hi-wave-bottom   { left: 25%; bottom: 2%;width: 19px; }
 
-    @keyframes hiFarRight   { from{opacity:0;transform:translateX(130px)}       to{opacity:1;transform:translateX(0)} }
+  @keyframes hiFarRight   { from{opacity:0;transform:translateX(60px)}       to{opacity:1;transform:translateX(0)} }
   @keyframes hiFarDiagTR  { from{opacity:0;transform:translate(85px,-65px)}   to{opacity:1;transform:translate(0,0)} }
   @keyframes hiFarUp      { from{opacity:0;transform:translateY(88px)}        to{opacity:1;transform:translateY(0)} }
-  /* New: animate from the top (negative Y) */
-  @keyframes hiFromTop    { from{opacity:0;transform:translateY(-88px)}       to{opacity:1;transform:translateY(0)} }
+  @keyframes hiFromTop    { from{opacity:0;transform:translateY(-44px)}       to{opacity:1;transform:translateY(0)} }
   @keyframes hiMidUp      { from{opacity:0;transform:translateY(52px)}        to{opacity:1;transform:translateY(0)} }
   @keyframes hiShortUp    { from{opacity:0;transform:translateY(22px)}        to{opacity:1;transform:translateY(0)} }
   
 
-  /* All share the same duration + delay → land at identical moment */
   .hi-a { animation: hiFarRight   1.05s cubic-bezier(0.22,0.85,0.28,1) 0.12s both; }
-  /* make the top-right cloud come from the top instead of the right */
   .hi-b { animation: hiFromTop  1.05s cubic-bezier(0.22,0.85,0.28,1) 0.12s both; }
   .hi-c { animation: hiFarUp      1.05s cubic-bezier(0.22,0.85,0.28,1) 0.12s both; }
   .hi-d { animation: hiMidUp      1.05s cubic-bezier(0.22,0.85,0.28,1) 0.12s both; }
   .hi-e { animation: hiShortUp    1.05s cubic-bezier(0.22,0.85,0.28,1) 0.12s both; }
 
-  // @keyframes hiFromRight  { from{opacity:0;transform:translateX(82px) } to{opacity:1;transform:translateX(0)       }}
-  // @keyframes hiFromBottom { from{opacity:0;transform:translateY(34px)  } to{opacity:1;transform:translateY(0)       }}
-  // @keyframes hiFromTR     { from{opacity:0;transform:translate(34px,-34px)} to{opacity:1;transform:translate(0,0)   }}
-  // @keyframes hiFromTop    { from{opacity:0;transform:translateY(-34px)  } to{opacity:1;transform:translateY(0)       }}
-
-  // .hi-entry-right  { animation: hiFromRight  1.2s cubic-bezier(0.22,0.85,0.28,1) both; }
-  // .hi-entry-bottom { animation: hiFromBottom 1.2s cubic-bezier(0.22,0.85,0.28,1) both; }
-  // .hi-entry-tr     { animation: hiFromTR     1.2s cubic-bezier(0.22,0.85,0.28,1) both; }
-  // .hi-entry-top    { animation: hiFromTop    1.2s cubic-bezier(0.22,0.85,0.28,1) both; }
-
-  // REMOVE this line:
   .hi-sync { animation-delay: 0.18s; }
-
-// REPLACE with:
-  .hi-delay-a { animation-delay: 0.10s; }   /* server elements — first, together */
-  .hi-delay-b { animation-delay: 0.50s; }   /* right cloud + top cloud — second wave, together */
-  .hi-delay-c { animation-delay: 0.85s; }   /* bottom cloud + wave dot — last, together */
 `;
 
 export default function HeroIllustration({ style, className }) {

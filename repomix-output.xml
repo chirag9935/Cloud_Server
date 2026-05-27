@@ -1,0 +1,2596 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.gitignore
+index.html
+package.json
+public/about_collage.png
+public/Arrow icon.png
+public/cloud_footer.png
+public/cloud_header.png
+public/cloud.png
+public/Group (1).png
+public/Group (2).png
+public/Group 7.png
+public/Group_dots.png
+public/Group.png
+public/main.png
+public/Property_1_1.png
+public/Property_1_2.png
+public/Property_1_3.png
+public/Property_1_4.png
+public/Property_1_5.png
+public/Property_1_6.png
+public/Vector (1).png
+public/Vector.png
+public/vite.svg
+src/App.jsx
+src/assets/hero.png
+src/components/About.jsx
+src/components/Contact.jsx
+src/components/Footer.jsx
+src/components/Hero.jsx
+src/components/Navbar.jsx
+src/components/Pricing.jsx
+src/components/ScrollToTopButton.jsx
+src/components/Services.jsx
+src/components/Testimonials.jsx
+src/HeroIllustration.jsx
+src/index.css
+src/main.jsx
+vite.config.js
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path=".gitignore">
+node_modules/
+dist/
+.DS_Store
+</file>
+
+<file path="index.html">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/cloud.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CloudServer | Modern Cloud Hosting</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+</file>
+
+<file path="package.json">
+{
+  "name": "cloud-react",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.0.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "globals": "^15.0.0",
+    "vite": "^6.0.0"
+  }
+}
+</file>
+
+<file path="public/vite.svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <circle cx="16" cy="16" r="16" fill="#1061F9"/>
+  <path d="M8 12 L16 8 L24 12 L16 24 Z" fill="white" opacity="0.9"/>
+</svg>
+</file>
+
+<file path="src/App.jsx">
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Services from './components/Services'
+import About from './components/About'
+import Testimonials from './components/Testimonials'
+import Pricing from './components/Pricing'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
+import ScrollToTopButton from './components/ScrollToTopButton'
+
+export default function App() {
+  return (
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <Services />
+        <About />
+        <Testimonials />
+        <Pricing />
+        <Contact />
+      </main>
+      <Footer />
+      <ScrollToTopButton />
+    </>
+  )
+}
+</file>
+
+<file path="src/components/Contact.jsx">
+import { useState } from 'react';
+
+export default function Contact() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    mobile: '',
+    message: '',
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    setSubmitted(true);
+    setFormData({ firstName: '', lastName: '', email: '', mobile: '', message: '' });
+  };
+
+  return (
+    <section id="contact" className="contact-section">
+      <div className="contact-content-parent">
+        <div className="contact-heading">
+          <h2>
+            Get{' '}
+            <span className="text-blue">in Touch</span>
+          </h2>
+        </div>
+
+        {submitted ? (
+          <div className="success-message">
+            <div className="success-icon">✓</div>
+            <h3>Thank you for reaching out!</h3>
+            <p>
+              Your message has been safely recorded. Since this is a demo, no external data was sent.
+            </p>
+            <button
+              type="button"
+              className="btn-hero-outline"
+              onClick={() => setSubmitted(false)}
+            >
+              Send Another Message
+            </button>
+          </div>
+        ) : (
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="form-row">
+              <div className="form-group">
+                <label className="form-label" htmlFor="firstName">
+                  First Name <span className="req">*</span>
+                </label>
+                <input
+                  id="firstName"
+                  type="text"
+                  name="firstName"
+                  className="form-input"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  placeholder="Enter name"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label" htmlFor="lastName">
+                  Last Name <span className="req">*</span>
+                </label>
+                <input
+                  id="lastName"
+                  type="text"
+                  name="lastName"
+                  className="form-input"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  placeholder="Enter name"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label className="form-label" htmlFor="email">
+                  Email <span className="req">*</span>
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  className="form-input"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Enter email"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label" htmlFor="mobile">
+                  Mobile No. <span className="req">*</span>
+                </label>
+                <input
+                  id="mobile"
+                  type="tel"
+                  name="mobile"
+                  className="form-input"
+                  value={formData.mobile}
+                  onChange={handleChange}
+                  placeholder="Enter mobile no."
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="form-row" style={{ gridTemplateColumns: '1fr' }}>
+              <div className="form-group full">
+                <label className="form-label" htmlFor="message">
+                  Message <span className="req">*</span>
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  className="form-textarea"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Enter message"
+                  rows={6}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="form-submit">
+              <button type="submit" className="btn-submit">
+                <span className="arrow-circle">
+                  <img src="/Arrow%20icon.png" alt="" />
+                </span>
+                Submit Now
+              </button>
+            </div>
+          </form>
+        )}
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="src/components/Footer.jsx">
+export default function Footer() {
+  return (
+    <footer className="site-footer">
+      <div className="footer-inner">
+        <div className="footer-left">
+          <img src="/cloud_footer.png" alt="CloudServer logo" className="footer-logo" />
+          <p className="footer-desc">
+            We specialize in delivering secure, scalable, and high-performance cloud
+            solutions tailored to modern business needs. From reliable hosting and data
+            storage to advanced cybersecurity and DevOps, our services are designed to
+            simplify operations, enhance efficiency, and support long-term growth in an
+            ever-evolving digital landscape.
+          </p>
+        </div>
+
+        <div className="footer-col footer-col-quick-links">
+          <h4>Quick Links</h4>
+          <ul className="footer-links">
+            <li><a href="#services">Service</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div className="footer-col footer-col-contact">
+          <h4>Contact</h4>
+          <p className="contact-line">
+            <i className="fa-solid fa-phone" style={{ color: '#FFFFFF', fontSize: '14px' }}></i>
+            +1 222-222-2222
+          </p>
+          <p className="contact-line">
+            <i className="fa-solid fa-envelope" style={{ color: '#FFFFFF', fontSize: '14px' }}></i>
+            cloudserver@gmail.com
+          </p>
+        </div>
+
+        <div className="footer-col footer-col-get-started">
+          <h4>Get Started</h4>
+          <ul className="footer-links">
+            <li><a href="#login">Login</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Talk to Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="footer-bottom">
+        <div className="footer-bottom-left">
+          <p>Copyright &amp; Terms © 2025 Cloudserver. All Rights Reserved.</p>
+        </div>
+        <div className="footer-bottom-center">
+          <a href="#">Terms of Use</a>
+          <span className="footer-sep">|</span>
+          <a href="#">Privacy Policy</a>
+        </div>
+        <div className="footer-bottom-right" style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <div className="social-icons">
+            <a href="#" className="social-icon" aria-label="LinkedIn">
+              <i className="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="#" className="social-icon" aria-label="Twitter">
+              <i className="fa-brands fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+</file>
+
+<file path="src/components/Hero.jsx">
+import { useState, useEffect } from 'react';
+import HeroIllustration from '../HeroIllustration';
+
+const WORDS = ['Performance', 'Security', 'Growth'];
+
+export default function Hero() {
+  const [currentIdx, setCurrentIdx] = useState(0);
+  const [exitIdx, setExitIdx]       = useState(-1);
+  const [isReset, setIsReset]       = useState(false);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      const next = (currentIdx + 1) % WORDS.length;
+      const resetting = currentIdx === WORDS.length - 1;
+
+      setExitIdx(currentIdx);
+      setIsReset(resetting);
+      setCurrentIdx(next);
+
+      setTimeout(() => {
+        setExitIdx(-1);
+        setIsReset(false);
+      }, 600);
+    }, 1700);
+
+    return () => clearInterval(id);
+  }, [currentIdx]);
+
+  const getWordClass = (idx) => {
+    if (idx === currentIdx) {
+      return isReset ? 'animated-word enter-from-top' : 'animated-word enter';
+    }
+    if (idx === exitIdx) {
+      return isReset ? 'animated-word exit-down' : 'animated-word exit-up';
+    }
+    return 'animated-word';
+  };
+
+  return (
+    <section className="hero" id="hero">
+      <div className="hero-content">
+        <h1>
+          Enhance Your Cloud<br />
+          Infrastructure for<br />
+          Greater{' '}
+          <span className="word-box" aria-live="polite" aria-atomic="true">
+            {WORDS.map((word, idx) => (
+              <span
+                key={word}
+                className={getWordClass(idx)}
+                aria-hidden={idx !== currentIdx}
+              >
+                {word}
+              </span>
+            ))}
+          </span>
+        </h1>
+
+        <p>
+          Streamline your operations with secure cloud hosting, scalable
+          infrastructure, advanced monitoring tools, and reliable support
+          designed to help your business grow faster.
+        </p>
+
+        <div className="hero-buttons">
+          <a href="#about" className="btn-hero-outline">Learn More</a>
+          <button type="button" className="btn-hero-primary" aria-label="Get Started">
+            <span className="arrow-circle">
+              <img src="/Arrow%20icon.png" alt="" />
+            </span>
+            Get Started
+          </button>
+        </div>
+      </div>
+
+      <div className="hero-image-container">
+        <HeroIllustration />
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="src/components/Navbar.jsx">
+export default function Navbar() {
+  return (
+    <header className="site-header">
+      <nav className="navbar">
+        <div className="logo">
+          <a href="#">
+          <img
+            src="/cloud_header.png"
+            alt="CloudServer logo"
+            className="navbar-logo-image"
+          />
+          </a>
+        </div>
+
+        <ul className="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div className="nav-buttons">
+          <a href="#login" className="btn-nav-login">Login</a>
+          <button type="button" className="btn-nav-primary" aria-label="Get Started">
+            <span className="arrow-circle">
+              <img src="/Arrow%20icon.png" alt="" />
+            </span>
+            Get Started
+          </button>
+        </div>
+      </nav>
+    </header>
+  );
+}
+</file>
+
+<file path="src/components/Pricing.jsx">
+const PLANS = [
+  {
+    id: 'plan-basic',
+    iconClass: 'fa-solid fa-layer-group',
+    name: 'Basic plan',
+    price: '$20',
+    note: 'Billed annually.',
+    features: [
+      'Access to all basic features',
+      'Basic reporting and analytics',
+      'Up to 10 individual users',
+      '20GB individual data each user',
+      'Basic chat and email support',
+    ],
+  },
+  {
+    id: 'plan-premium',
+    iconClass: 'fa-solid fa-cubes',
+    name: 'Premium plan',
+    price: '$40',
+    note: 'Billed annually.',
+    features: [
+      'Access to all basic features',
+      'Basic reporting and analytics',
+      'Up to 10 individual users',
+      '20GB individual data each user',
+      'Basic chat and email support',
+    ],
+  },
+  {
+    id: 'plan-advance',
+    iconClass: 'fa-solid fa-box-open',
+    name: 'Advance plan',
+    price: '$80',
+    note: 'Billed annually.',
+    features: [
+      'Access to all basic features',
+      'Basic reporting and analytics',
+      'Up to 10 individual users',
+      '20GB individual data each user',
+      'Basic chat and email support',
+    ],
+  },
+];
+
+export default function Pricing() {
+  return (
+    <section id="pricing" className="pricing-section">
+      <div className="pricing-kicker">
+        <span className="pricing-kicker-text">PRICING PLANS</span>
+        <span className="pricing-kicker-line"></span>
+      </div>
+      <h2 className="pricing-heading">
+        Choose a plan that fits your needs with scalable, secure, and
+        high-performance{' '}
+        <span className="text-blue">cloud solutions—no hidden costs.</span>
+      </h2>
+
+      <div className="pricing-grid">
+        {PLANS.map((plan) => (
+          <article key={plan.id} className="pricing-card">
+            <div className="pricing-icon">
+              <i className={plan.iconClass}></i>
+            </div>
+            <p className="plan-name">{plan.name}</p>
+            <strong className="plan-price">
+              {plan.price}
+              <span className="per">/month</span>
+            </strong>
+            <p className="plan-note">{plan.note}</p>
+            <ul className="plan-features">
+              {plan.features.map((feat, fi) => (
+                <li key={fi}>
+                  <i className="fa-regular fa-circle-check check-icon"></i>
+                  {feat}
+                </li>
+              ))}
+            </ul>
+            <a href="#start" className="pricing-cta-btn">
+              <span className="pricing-arrow-badge">
+                <img src="/Arrow%20icon.png" alt="" />
+              </span>
+              Get Started
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="src/components/ScrollToTopButton.jsx">
+import { useEffect, useState } from 'react';
+
+export default function ScrollToTopButton() {
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY < 80);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const handleRestart = () => {
+    window.dispatchEvent(new Event('cloudserver:restart'));
+  };
+
+  return (
+    <button
+      type="button"
+      className={`restart-fab${visible ? '' : ' restart-fab--hidden'}`}
+      onClick={handleRestart}
+      aria-label="Restart animations"
+      title="Press R to restart"
+    >
+      <span className="restart-fab-icon">
+        <i className="fa-solid fa-rotate-left"></i>
+      </span>
+      <span className="restart-fab-text">
+        <span className="restart-fab-text-main">Restart</span>
+        <span className="restart-fab-text-key">R</span>
+      </span>
+    </button>
+  );
+}
+</file>
+
+<file path="src/components/Services.jsx">
+// Icon mapping (per reference image):
+// Cloud Hosting      → Property_1_6 (cloud+server)
+// Cloud Storage      → Property_1_5 (cloud+db)
+// Cyber Security     → Property_1_4 (globe+shield)
+// DevOps Solutions   → Property_1_3 (gears)
+// Perf. Monitoring   → Property_1_2 (monitor+chart)
+// Scalability        → Property_1_1 (network/team)
+
+const SERVICES = [
+  {
+    id: 'srv-hosting',
+    img: '/Property_1_6.png',
+    title: 'Cloud Hosting',
+    desc: 'High-performance hosting solutions ensuring fast loading, maximum uptime, and seamless user experience for your applications.',
+  },
+  {
+    id: 'srv-storage',
+    img: '/Property_1_5.png',
+    title: 'Cloud Storage',
+    desc: 'Secure and scalable storage systems to store, manage, and access your data efficiently from anywhere anytime with advanced encryption and reliability.',
+  },
+  {
+    id: 'srv-security',
+    img: '/Property_1_4.png',
+    title: 'Cyber Security',
+    desc: 'Advanced security solutions protecting your systems, networks, and sensitive data from modern cyber threats and advanced attacks.',
+  },
+  {
+    id: 'srv-devops',
+    img: '/Property_1_3.png',
+    title: 'DevOps Solutions',
+    desc: 'Automate development workflows with efficient CI/CD pipelines, faster deployments, and improved collaboration across teams and environments.',
+  },
+  {
+    id: 'srv-monitor',
+    img: '/Property_1_2.png',
+    title: 'Performance Monitoring',
+    desc: 'Real-time monitoring tools to track system performance, detect issues early, and ensure smooth and uninterrupted operations.',
+  },
+  {
+    id: 'srv-scale',
+    img: '/Property_1_1.png',
+    title: 'Scalability & Support',
+    desc: 'Flexible infrastructure and expert support services that adapt to your business growth and evolving technical requirements.',
+  },
+];
+
+export default function Services() {
+  return (
+    <section id="services" className="services-section">
+      <div className="services-header">
+        <div className="section-kicker-row">
+          <span className="kicker-line"></span>
+          <span className="kicker-text">SERVICES</span>
+          <span className="kicker-line rev"></span>
+        </div>
+        <h2>
+          Provide Reliable Solutions to Simplify and Strengthen Your
+          <span className="text-blue"> Cloud Operations</span>
+        </h2>
+      </div>
+
+      <div className="services-grid">
+        {SERVICES.map((srv) => (
+          <div className="service-card" key={srv.id}>
+            <div className="service-icon-wrap">
+              <img src={srv.img} alt={srv.title} className="service-icon-img" />
+            </div>
+            <h3>{srv.title}</h3>
+            <p>{srv.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="src/components/Testimonials.jsx">
+import avatarImg from '../assets/hero.png';
+
+const TESTIMONIALS = [
+  {
+    id: 't1',
+    quote:
+      '"The onboarding process was smooth, and their team ensured everything was set up perfectly from day one, allowing us to start operations quickly without any delays or technical issues, while providing continuous guidance and reliable support throughout the entire setup phase."',
+    rating: 4,
+    name: 'Suraj Mishra',
+    role: 'Chemistry student',
+  },
+  {
+    id: 't2',
+    quote:
+      '"The onboarding process was smooth, and their team ensured everything was set up perfectly from day one, making the transition seamless, efficient, and completely hassle-free for our entire organization."',
+    rating: 4,
+    name: 'Suraj Mishra',
+    role: 'Chemistry student',
+  },
+  {
+    id: 't3',
+    quote:
+      '"The onboarding process was smooth, and their team ensured everything was set up perfectly from day one, making the transition seamless, efficient, and completely hassle-free for our entire organization."',
+    rating: 4,
+    name: 'Suraj Mishra',
+    role: 'Chemistry student',
+  },
+  {
+    id: 't4',
+    quote:
+      '"The onboarding process was smooth, and their team ensured everything was set up perfectly from day one, allowing us to start operations quickly without any delays or technical issues, while providing continuous guidance and reliable support throughout the entire setup phase."',
+    rating: 4,
+    name: 'Suraj Mishra',
+    role: 'Chemistry student',
+  },
+  {
+    id: 't5',
+    quote:
+      '"The onboarding process was smooth, and their team ensured everything was set up perfectly from day one, making the transition seamless, efficient, and completely hassle-free for our entire organization."',
+    rating: 4,
+    name: 'Suraj Mishra',
+    role: 'Chemistry student',
+  },
+  {
+    id: 't6',
+    quote:
+      '"Switching to CloudServer was the best decision we made this year. The infrastructure is blazing fast and their support team responds within minutes. We have seen a massive improvement in our application uptime since migrating."',
+    rating: 5,
+    name: 'Arjun Patel',
+    role: 'Backend Engineer',
+  },
+  {
+    id: 't7',
+    quote:
+      '"Exceptional service from start to finish. The DevOps tools integrated seamlessly with our existing pipeline, and the monitoring dashboard gave us real-time visibility we never had before. Highly recommend to any growing team."',
+    rating: 5,
+    name: 'Priya Sharma',
+    role: 'CTO, TechVentures',
+  },
+];
+
+function StarRating({ rating }) {
+  return (
+    <div className="testimonial-rating">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <span key={i} className={`star ${i < rating ? 'star-filled' : 'star-empty'}`}>
+          {i < rating ? '★' : '☆'}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function TestimonialCard({ t }) {
+  return (
+    <article className="testimonial-card">
+      <p className="testimonial-quote">{t.quote}</p>
+      <StarRating rating={t.rating} />
+      <div className="testimonial-person">
+        <img src={avatarImg} alt={t.name} className="testimonial-avatar" />
+        <div className="testimonial-meta">
+          <strong>{t.name}</strong>
+          <span>{t.role}</span>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+export default function Testimonials() {
+  return (
+    <section id="testimonials" className="testimonials-section">
+      <div className="testimonials-inner">
+        <div className="testimonials-heading">
+          <div className="testimonials-kicker">
+            <span className="testimonials-kicker-text">TESTIMONIALS</span>
+          </div>
+          <h2>
+            Client Feedback and <span>Reviews</span>
+          </h2>
+        </div>
+
+        <div className="testimonials-track-wrapper">
+          <div className="testimonials-track">
+            {TESTIMONIALS.map((t) => (
+              <TestimonialCard key={t.id} t={t} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="src/HeroIllustration.jsx">
+import { useEffect, useState, useCallback, useRef } from 'react';
+
+const ILLUS_CSS = `
+  .hi-wrap {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hi-static-shell {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .hi-center-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 24px 48px rgba(0,0,0,0.55));
+    position: relative;
+    z-index: 2;
+  }
+
+  .hi-elem {
+    position: absolute;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .hi-cube-right    { top: 22%; right: 5%;  width: 80px; }
+  .hi-stack-bl      { left: 1%; bottom: 7%; width: 102px; }
+  .hi-group7-right  { top: 35%; right: 0;   width: 70px; }
+  .hi-cloud-bl      { left: 30%; top: 90%;  width: 69px; }
+  .hi-cloud-tr      { left: 78%; top: 2%;   width: 69px; }
+  .hi-wave-bottom   { left: 25%; bottom: 2%;width: 19px; }
+
+  @keyframes hiFromRight  { from{opacity:0;transform:translateX(82px) } to{opacity:1;transform:translateX(0)       }}
+  @keyframes hiFromBottom { from{opacity:0;transform:translateY(34px)  } to{opacity:1;transform:translateY(0)       }}
+  @keyframes hiFromTR     { from{opacity:0;transform:translate(34px,-34px)} to{opacity:1;transform:translate(0,0)   }}
+  @keyframes hiFromTop    { from{opacity:0;transform:translateY(-34px)  } to{opacity:1;transform:translateY(0)       }}
+
+  .hi-entry-right  { animation: hiFromRight  1.2s cubic-bezier(0.22,0.85,0.28,1) both; }
+  .hi-entry-bottom { animation: hiFromBottom 1.2s cubic-bezier(0.22,0.85,0.28,1) both; }
+  .hi-entry-tr     { animation: hiFromTR     1.2s cubic-bezier(0.22,0.85,0.28,1) both; }
+  .hi-entry-top    { animation: hiFromTop    1.2s cubic-bezier(0.22,0.85,0.28,1) both; }
+
+  .hi-sync { animation-delay: 0.18s; }
+`;
+
+export default function HeroIllustration({ style, className }) {
+  const [animKey, setAnimKey] = useState(1);
+  const restartTimerRef = useRef(null);
+  const isRestartingRef = useRef(false);
+
+  useEffect(() => {
+    const styleId = 'hi-illustration-styles';
+    if (!document.getElementById(styleId)) {
+      const tag = document.createElement('style');
+      tag.id = styleId;
+      tag.textContent = ILLUS_CSS;
+      document.head.appendChild(tag);
+    }
+  }, []);
+
+  const handleRestart = useCallback(() => {
+    if (isRestartingRef.current) return;
+    isRestartingRef.current = true;
+
+    // Clear any pending timer
+    clearTimeout(restartTimerRef.current);
+
+    // Scroll to top first
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Reset animation key to unmount elements
+    setAnimKey(0);
+
+    // After scroll settles, re-mount with new key
+    restartTimerRef.current = setTimeout(() => {
+      setAnimKey(k => k + 1);
+      isRestartingRef.current = false;
+    }, 700);
+  }, []);
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if ((e.key === 'r' || e.key === 'R') && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        handleRestart();
+      }
+    };
+    const onRestart = () => handleRestart();
+
+    window.addEventListener('keydown', onKey);
+    window.addEventListener('cloudserver:restart', onRestart);
+
+    return () => {
+      clearTimeout(restartTimerRef.current);
+      window.removeEventListener('keydown', onKey);
+      window.removeEventListener('cloudserver:restart', onRestart);
+    };
+  }, [handleRestart]);
+
+  const show = animKey > 0;
+
+  return (
+    <div className={`hi-wrap ${className || ''}`} style={style}>
+      <style>{ILLUS_CSS}</style>
+
+      <div className="hi-static-shell">
+        <img
+          src="/main.png"
+          alt="Cloud Infrastructure Illustration"
+          className="hi-center-img"
+        />
+      </div>
+
+      {show && (
+        <div key={animKey}>
+          {/* Bottom-right server cube */}
+          <div className="hi-elem hi-entry-bottom hi-sync" style={{ top: '80%', right: '20%' }}>
+            <img src="/Group.png" alt="Server" width="48"
+              style={{ filter: 'drop-shadow(0 6px 16px rgba(37,99,235,0.55))' }} />
+          </div>
+
+          {/* Bottom-left server stack */}
+          <div className="hi-elem hi-entry-bottom hi-sync" style={{ bottom: '10%', left: '-4%' }}>
+            <img src="/Group (2).png" alt="Server Stack" width="102"
+              style={{ filter: 'drop-shadow(0 8px 20px rgba(37,99,235,0.50))' }} />
+          </div>
+
+          {/* Bottom-left wave sparks */}
+          <div className="hi-elem hi-entry-bottom hi-sync" style={{ bottom: '31%', left: '-7%' }}>
+            <img src="/Group_dots.png" alt="Server Wave" width="48"
+              style={{ filter: 'drop-shadow(0 8px 20px rgba(37,99,235,0.50))' }} />
+          </div>
+
+          {/* Right cloud group */}
+          <div className="hi-elem hi-entry-right hi-sync hi-group7-right">
+            <img src="/Group 7.png" alt="Cloud" width="72"
+              style={{ filter: 'drop-shadow(0 4px 12px rgba(255,255,255,0.25))' }} />
+          </div>
+
+          {/* Bottom-left cloud */}
+          <div className="hi-elem hi-entry-bottom hi-sync hi-cloud-bl">
+            <img src="/Vector.png" alt="Cloud" width="69"
+              style={{ filter: 'drop-shadow(0 4px 10px rgba(255,255,255,0.22))' }} />
+          </div>
+
+          {/* Bottom wave sparks */}
+          <div className="hi-elem hi-entry-bottom hi-sync hi-wave-bottom">
+            <img src="/Group (1).png" alt="Wave" width="19"
+              style={{ filter: 'drop-shadow(0 4px 10px rgba(255,255,255,0.18))' }} />
+          </div>
+
+          {/* Top-right cloud */}
+          <div className="hi-elem hi-entry-top hi-sync hi-cloud-tr">
+            <img src="/Vector.png" alt="Cloud" width="69"
+              style={{ filter: 'drop-shadow(0 4px 10px rgba(255,255,255,0.22))' }} />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+</file>
+
+<file path="src/main.jsx">
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+</file>
+
+<file path="vite.config.js">
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+})
+</file>
+
+<file path="src/components/About.jsx">
+export default function About() {
+  return (
+    <section id="about" className="about-section">
+      {/* Desktop: image sits in the left column */}
+      <div className="about-images about-images-desktop">
+        <div className="img-collage">
+          <img
+            src="/about_collage.png"
+            alt="Cloud Technology Collage"
+          />
+        </div>
+      </div>
+
+      <div className="about-content">
+        <div className="about-kicker">
+          <span className="about-kicker-line about-kicker-line--rev"></span>
+          <span className="about-kicker-text">ABOUT US</span>
+          <span className="about-kicker-line"></span>
+        </div>
+
+        <h2>
+          Empowering Businesses with Smart and Scalable{' '}
+          <span className="text-blue">Cloud Solutions</span>
+        </h2>
+
+        {/* Mobile: image sits between h2 and p */}
+        <div className="about-images about-images-mobile">
+          <div className="img-collage">
+            <img
+              src="/about_collage.png"
+              alt="Cloud Technology Collage"
+            />
+          </div>
+        </div>
+
+        <p>
+          We are a forward-thinking cloud solutions provider dedicated to helping
+          businesses grow through secure, scalable, and high-performance technologies.
+          From cloud hosting and storage to DevOps and cybersecurity, we deliver
+          end-to-end solutions tailored to your needs. Our focus is on reliability,
+          innovation, and long-term success—ensuring your digital infrastructure is
+          always optimized, protected, and ready for the future.
+        </p>
+
+        <a href="#start" className="btn-about">Learn More</a>
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="src/index.css">
+/* ========================
+   DESIGN TOKENS & RESET
+   ======================== */
+:root {
+  --bg: #020618;
+  --accent: #1061f9;
+  --accent-dark: #0b3894;
+  --accent-hover: #2563eb;
+  --text: #ffffff;
+  --text-muted: #8b9ab5;
+  --text-light: #f5f5f5;
+  --font: "Geist", sans-serif;
+  --grad: linear-gradient(90deg, #0b3894 0%, #1061f9 100%);
+  --border-blue: rgba(16, 97, 249, 0.2);
+
+  /* Shared button tokens */
+  --btn-radius: 12px;
+  --btn-shadow: 0 6px 18px rgba(16, 97, 249, 0.36);
+  --btn-shadow-hover: 0 6px 22px rgba(29, 78, 216, 0.2);
+  --btn-transition: background 0.25s, color 0.25s, border-color 0.25s, box-shadow 0.25s;
+
+  /* Shared layout tokens */
+  --section-max-w: 1440px;
+  --section-pad: 80px 120px;
+  --kicker-grad: linear-gradient(90deg, rgba(16, 97, 249, 0.6), rgba(16, 97, 249, 0));
+  --border-subtle: rgba(245, 245, 245, 0.35);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* ========================
+   SHARED UTILITIES
+   ======================== */
+.text-blue {
+  color: var(--accent);
+}
+
+/* Kicker label with lines */
+.section-kicker-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.kicker-line {
+  height: 1.5px;
+  width: 74px;
+  background: var(--kicker-grad);
+  border-radius: 2px;
+}
+.kicker-line.rev {
+  transform: scaleX(-1);
+}
+.kicker-text {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* Arrow badge inside buttons */
+.arrow-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: background 0.2s;
+  overflow: hidden;
+}
+.arrow-circle img {
+  width: 55%;
+  height: 55%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ========================
+   NAVBAR
+   ======================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  width: 100%;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--section-max-w);
+  width: 100%;
+  margin: 0 auto;
+  padding: 28px 120px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  width: 152.84px;
+  height: 48px;
+}
+.navbar-logo-image {
+  display: block;
+  width: auto;
+  height: 68px;
+  object-fit: contain;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  align-items: center;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+.nav-links a:hover {
+  opacity: 1;
+}
+.nav-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.btn-nav-login {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 12px 16px;
+  border: 1px solid #fff;
+  border-radius: var(--btn-radius);
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-nav-login:hover {
+  background: #fff;
+  color: var(--accent);
+}
+.btn-nav-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 12px 20px;
+  border: 1px solid transparent;
+  border-radius: var(--btn-radius);
+  background: var(--grad);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: var(--btn-shadow);
+  transition: var(--btn-transition);
+}
+.btn-nav-primary:hover {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent-hover);
+  box-shadow: var(--btn-shadow-hover);
+}
+.btn-nav-primary:hover .arrow-circle {
+  background: var(--accent-hover);
+}
+.btn-nav-primary:hover .arrow-circle img {
+  filter: brightness(0) invert(1);
+}
+
+/* ========================
+   HERO
+   ======================== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--section-max-w);
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--section-pad);
+  gap: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-content {
+  flex: 1;
+  max-width: 646px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 24px;
+}
+.hero-content h1 {
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1;
+  width: 100%;
+  max-width: 638px;
+}
+.hero-content p {
+  color: var(--text-light);
+  font-size: 18px;
+  font-weight: 400;
+  width: 100%;
+  max-width: 647px;
+}
+.hero-buttons {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.btn-hero-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  width: 108px;
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: var(--btn-radius);
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.btn-hero-outline:hover {
+  background: #fff;
+  border-color: #fff;
+  color: var(--accent);
+}
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  width: 142px;
+  padding: 12px 16px;
+  border: 1px solid transparent;
+  border-radius: var(--btn-radius);
+  background: var(--grad);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: var(--btn-shadow);
+  transition: var(--btn-transition);
+}
+.btn-hero-primary:hover {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent-hover);
+  box-shadow: var(--btn-shadow-hover);
+}
+.btn-hero-primary:hover .arrow-circle {
+  background: var(--accent-hover);
+}
+.btn-hero-primary:hover .arrow-circle img {
+  filter: brightness(0) invert(1);
+}
+
+/* Word rotator */
+.word-box {
+  display: inline-block;
+  position: relative;
+  vertical-align: bottom;
+  overflow: hidden;
+  height: 1.1em;
+  width: 380px;
+}
+.animated-word {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: var(--accent);
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(110%);
+  will-change: transform, opacity;
+  white-space: nowrap;
+}
+.animated-word.enter {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.35s ease-out;
+}
+.animated-word.exit-up {
+  opacity: 0;
+  transform: translateY(-110%);
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.28s ease-in;
+}
+.animated-word.exit-down {
+  opacity: 0;
+  transform: translateY(110%);
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.28s ease-in;
+}
+.animated-word.enter-from-top {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.35s ease-out;
+}
+.hero-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  height: 423px;
+  max-width: 514px;
+  width: 100%;
+}
+
+/* ========================
+   SERVICES
+   ======================== */
+.services-section {
+  max-width: var(--section-max-w);
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--section-pad);
+}
+.services-header {
+  max-width: 940px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto 40px auto;
+}
+.services-header h2 {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1;
+  width: 100%;
+}
+.services-grid {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.service-card {
+  background: var(--bg);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-bottom: 1px solid #f5f5f559;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background 0.32s;
+}
+.services-grid .service-card:nth-child(3n + 1),
+.services-grid .service-card:nth-child(3n + 2) {
+  border-right: 1px solid #f5f5f559;
+}
+.services-grid .service-card:nth-child(4),
+.services-grid .service-card:nth-child(5),
+.services-grid .service-card:nth-child(6) {
+  border-bottom: none;
+}
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.32s;
+  z-index: 0;
+}
+.services-grid .service-card:nth-child(-n + 3)::before {
+  background: linear-gradient(180deg, #020618 20%, #0b207e 100%);
+}
+.services-grid .service-card:nth-child(n + 4)::before {
+  background: linear-gradient(0deg, #020618 20%, #0b238f 100%);
+}
+.service-card:hover::before {
+  opacity: 1;
+}
+.service-card > * {
+  position: relative;
+  z-index: 1;
+}
+.service-icon-wrap {
+  width: 60px;
+  height: 60px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.service-icon-wrap i {
+  font-size: 28px;
+  color: var(--accent);
+}
+.service-icon-img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  display: block;
+}
+.service-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+.service-card p {
+  color: var(--text-light);
+  font-size: 16px;
+  font-weight: 400;
+  width: 100%;
+  max-width: 320px;
+}
+
+/* ========================
+   ABOUT
+   ======================== */
+.about-section {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  max-width: var(--section-max-w);
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--section-pad);
+}
+.about-images {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 560px;
+  width: 100%;
+}
+/* Desktop sidebar image — shown by default */
+.about-images-desktop {
+  display: block;
+}
+/* Mobile inline image — hidden by default */
+.about-images-mobile {
+  display: none;
+}
+.img-collage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img-collage img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: var(--btn-radius);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    0 0 32px rgba(16, 97, 249, 0.14);
+}
+.about-content {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 560px;
+}
+.about-kicker {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.about-kicker-text {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.about-kicker-line {
+  flex: 1;
+  height: 1.5px;
+  max-width: 180px;
+  background: var(--kicker-grad);
+  border-radius: 2px;
+}
+/* Left-side line — hidden on desktop, shown centered on mobile */
+.about-kicker-line--rev {
+  display: none;
+  transform: scaleX(-1);
+}
+.about-content h2 {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+.about-content p {
+  color: var(--text-light);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+.btn-about {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 42px;
+  padding: 12px 16px;
+  border: 1px solid #fff;
+  border-radius: var(--btn-radius);
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.btn-about:hover {
+  background: #fff;
+  border-color: #fff;
+  color: var(--accent);
+}
+
+/* ========================
+   TESTIMONIALS
+   ======================== */
+.testimonials-section {
+  background: var(--bg);
+  padding: var(--section-pad);
+  max-width: var(--section-max-w);
+  width: 100%;
+  margin: 0 auto;
+}
+.testimonials-inner {
+  max-width: var(--section-max-w);
+  margin: 0 auto;
+}
+.testimonials-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.testimonials-kicker {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.testimonials-kicker-text {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0 16px;
+  position: relative;
+}
+.testimonials-kicker-text::before,
+.testimonials-kicker-text::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 100px;
+  height: 1.5px;
+  background: linear-gradient(90deg, rgba(16, 97, 249, 0.5), rgba(16, 97, 249, 0));
+}
+.testimonials-kicker-text::before {
+  right: calc(100% - 16px);
+  transform: translateY(-50%) scaleX(-1);
+}
+.testimonials-kicker-text::after {
+  left: calc(100% - 16px);
+  transform: translateY(-50%);
+}
+.testimonials-heading h2 {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.testimonials-heading h2 span {
+  color: var(--accent);
+}
+.testimonials-track-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.testimonials-track-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.testimonials-track-wrapper:active {
+  cursor: grabbing;
+}
+.testimonials-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  align-items: flex-start;
+}
+.testimonial-card {
+  flex-shrink: 0;
+  width: 240px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: var(--bg);
+  border: 1px solid var(--border-blue);
+  box-shadow: inset 1px 1px 20px 2px rgba(16, 97, 249, 0.08);
+}
+.testimonial-quote {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+.testimonial-rating {
+  display: flex;
+  gap: 6px;
+}
+.star {
+  font-size: 20px;
+  line-height: 1;
+}
+.star-filled {
+  color: #ffa43c;
+}
+.star-empty {
+  color: #ffa43c;
+  opacity: 0.3;
+}
+.testimonial-person {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+.testimonial-meta strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.testimonial-meta span {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ========================
+   PRICING
+   ======================== */
+.pricing-section {
+  max-width: var(--section-max-w);
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--section-pad);
+}
+.pricing-kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.pricing-kicker-text {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.pricing-kicker-line {
+  height: 1.5px;
+  flex: 1;
+  max-width: 260px;
+  background: linear-gradient(90deg, rgba(16, 97, 249, 0.5), rgba(16, 97, 249, 0));
+  border-radius: 2px;
+}
+.pricing-heading {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 1076px;
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  width: 100%;
+}
+.pricing-card {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid #f5f5f533;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.pricing-card:hover {
+  border-color: rgba(16, 97, 249, 0.48);
+  box-shadow:
+    inset 1px 1px 20px 2px rgba(16, 97, 249, 0.16),
+    0 0 28px rgba(16, 97, 249, 0.14);
+}
+.pricing-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #e8f0fe, #fff);
+  display: grid;
+  place-items: center;
+  color: #1e3a8a;
+  font-size: 22px;
+  margin: 0 auto 16px;
+}
+.plan-name {
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.plan-price {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.1;
+  display: block;
+  margin-bottom: 8px;
+}
+.plan-price .per {
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+}
+.plan-note {
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+.plan-features {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+  margin-bottom: 24px;
+}
+.plan-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.45;
+}
+.check-icon {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.pricing-cta-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 12px 16px;
+  border: 1px solid transparent;
+  border-radius: var(--btn-radius);
+  background: var(--grad);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(16, 97, 249, 0.36);
+  transition: var(--btn-transition);
+}
+.pricing-cta-btn:hover {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent-hover);
+  box-shadow: var(--btn-shadow-hover);
+}
+.pricing-cta-btn:hover .pricing-arrow-badge {
+  background: var(--accent-hover);
+}
+.pricing-cta-btn:hover .pricing-arrow-badge img {
+  filter: brightness(0) invert(1);
+}
+.pricing-arrow-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 14px;
+  background: #fff;
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: background 0.25s;
+}
+.pricing-arrow-badge img {
+  width: 55%;
+  height: 55%;
+  object-fit: contain;
+}
+
+/* ========================
+   CONTACT
+   ======================== */
+.contact-section {
+  max-width: var(--section-max-w);
+  width: 100%;
+  padding: var(--section-pad);
+  background: var(--bg);
+  margin: 0 auto;
+}
+.contact-content-parent {
+  max-width: 800px;
+  width: 100%;
+  padding: 40px;
+  border: 1px solid #f5f5f533;
+  margin: 0 auto;
+}
+.contact-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.contact-heading h2 {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.contact-form {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form-group.full {
+  grid-column: 1 / -1;
+}
+.form-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #f8fafc;
+}
+.form-label .req {
+  color: #f87171;
+  margin-left: 4px;
+}
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(2, 6, 24, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.4;
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.34);
+}
+.form-input:focus,
+.form-textarea:focus {
+  border-color: rgba(16, 97, 249, 0.55);
+  box-shadow: 0 0 0 3px rgba(16, 97, 249, 0.12);
+}
+.form-textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+.form-submit {
+  display: flex;
+  justify-content: center;
+}
+.btn-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 12px 16px;
+  border: 1px solid transparent;
+  border-radius: var(--btn-radius);
+  background: var(--grad);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: var(--btn-shadow);
+  transition: var(--btn-transition);
+}
+.btn-submit:hover {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent-hover);
+  box-shadow: var(--btn-shadow-hover);
+}
+.btn-submit:hover .arrow-circle {
+  background: var(--accent-hover);
+}
+.btn-submit:hover .arrow-circle img {
+  filter: brightness(0) invert(1);
+}
+.success-message {
+  text-align: center;
+  padding: 40px 20px;
+}
+.success-icon {
+  font-size: 48px;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.success-message h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.success-message p {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+/* ========================
+   FOOTER
+   ======================== */
+.site-footer {
+  padding: 40px 120px 0;
+  max-width: var(--section-max-w);
+  width: 100%;
+  margin: 0 auto;
+  background: var(--bg);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.footer-inner {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0 0 40px;
+}
+.footer-left {
+  flex: 1;
+  max-width: 400px;
+  min-width: 0;
+}
+.footer-logo {
+  display: block;
+  width: 152.84px;
+  height: auto;
+  margin-bottom: 32px;
+}
+.footer-desc {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 12px;
+  line-height: 1.65;
+  width: 100%;
+  font-weight: 400;
+}
+.footer-col {
+  flex: 1;
+}
+.footer-col-quick-links {
+  width: 99px;
+  flex: 0 0 99px;
+}
+.footer-col-contact {
+  width: 169px;
+  flex: 0 0 169px;
+}
+.footer-col-get-started {
+  width: 109px;
+  flex: 0 0 109px;
+}
+.footer-col h4 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+.footer-links {
+  list-style: none;
+}
+.footer-links li {
+  margin-bottom: 16px;
+}
+.footer-links a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: #fff;
+}
+.contact-line {
+  color: var(--text-light);
+  font-size: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-bottom {
+  border-top: 1px solid #f5f5f580;
+  padding: 24px 0;
+  max-width: var(--section-max-w);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.footer-bottom-left p {
+  font-size: 14px;
+  color: #fff;
+}
+.footer-bottom-center {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.footer-bottom-center a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+.footer-bottom-center a:hover {
+  color: var(--text);
+}
+.footer-sep {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
+}
+.social-icons {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+.social-icon:hover {
+  color: var(--accent);
+}
+
+/* ========================
+   SCROLL-TO-TOP FAB
+   ======================== */
+.restart-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 220;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px 8px 10px;
+  border: 0;
+  border-radius: 9999px;
+  background: #2a2a2a;
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+  font-family: var(--font);
+  transition: background 0.18s, transform 0.3s ease, opacity 0.3s ease;
+  opacity: 1;
+}
+.restart-fab:hover {
+  background: #3a3a3a;
+  transform: translateY(-1px);
+}
+.restart-fab--hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.restart-fab-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  font-size: 12px;
+}
+.restart-fab-text {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.restart-fab-text-main {
+  font-size: 14px;
+  font-weight: 600;
+}
+.restart-fab-text-key {
+  font-size: 12px;
+  color: #888;
+  font-weight: 500;
+}
+
+/* ========================
+   RESPONSIVE
+   ======================== */
+
+/* Large desktops — reduce outer padding */
+@media (max-width: 1440px) {
+  .hero,
+  .services-section,
+  .about-section,
+  .pricing-section,
+  .testimonials-section,
+  .contact-section,
+  .site-footer {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+/* Medium desktops / large tablets */
+@media (max-width: 1200px) {
+  .hero,
+  .services-section,
+  .about-section,
+  .pricing-section,
+  .testimonials-section,
+  .contact-section,
+  .site-footer {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .navbar {
+    padding: 20px 32px;
+  }
+  .nav-links {
+    display: none;
+  }
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 48px 32px;
+    min-height: auto;
+  }
+  .hero-content {
+    max-width: 100%;
+    align-items: center;
+  }
+  .hero-content h1 {
+    font-size: 44px;
+    max-width: 100%;
+  }
+  .hero-content p {
+    max-width: 560px;
+  }
+  .word-box {
+    width: 300px;
+  }
+  .hero-image-container {
+    justify-content: center;
+    max-width: 420px;
+    height: 320px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .services-section,
+  .about-section,
+  .pricing-section,
+  .testimonials-section,
+  .contact-section,
+  .site-footer {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* Reset 3-col borders, apply 2-col borders */
+  .services-grid .service-card:nth-child(3n + 1),
+  .services-grid .service-card:nth-child(3n + 2) {
+    border-right: none;
+  }
+  .services-grid .service-card:nth-child(2n + 1) {
+    border-right: 1px solid rgba(245, 245, 245, 0.15);
+  }
+  .services-grid .service-card:nth-child(4),
+  .services-grid .service-card:nth-child(5),
+  .services-grid .service-card:nth-child(6) {
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .services-grid .service-card:last-child {
+    border-bottom: none;
+  }
+  /* About: single column, centered, image between h2 and p */
+  .about-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 28px;
+  }
+  .about-images-desktop {
+    display: none;
+  }
+  .about-images-mobile {
+    display: block;
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+  .about-content {
+    max-width: 100%;
+    width: 100%;
+  }
+  .about-kicker {
+    justify-content: center;
+  }
+  .about-kicker-line--rev {
+    display: block;
+  }
+  .about-content h2 {
+    font-size: 30px;
+  }
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .contact-content-parent {
+    padding: 32px 24px;
+  }
+  .footer-inner {
+    gap: 40px;
+  }
+}
+
+/* Large phones / small tablets */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 16px 20px;
+  }
+  .hero {
+    padding: 40px 20px;
+  }
+  .hero-content h1 {
+    font-size: 36px;
+  }
+  .word-box {
+    width: 230px;
+  }
+  .hero-image-container {
+    max-width: 340px;
+    height: 260px;
+  }
+  .services-section,
+  .about-section,
+  .pricing-section,
+  .testimonials-section {
+    padding: 48px 20px;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .services-grid .service-card {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+  }
+  .services-grid .service-card:last-child {
+    border-bottom: none !important;
+  }
+  .service-card p {
+    max-width: 100%;
+  }
+  .about-section {
+    text-align: center;
+    align-items: center;
+  }
+  .about-images-mobile {
+    max-width: 360px;
+  }
+  .about-kicker {
+    justify-content: center;
+  }
+  .about-content h2 {
+    font-size: 28px;
+  }
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .contact-section {
+    padding: 48px 20px;
+  }
+  .contact-content-parent {
+    padding: 28px 20px;
+  }
+  .contact-heading h2 {
+    font-size: 32px;
+  }
+  .site-footer {
+    padding: 32px 20px 0;
+  }
+  .footer-inner {
+    flex-direction: column;
+    gap: 32px;
+    padding-bottom: 32px;
+  }
+  .footer-left {
+    max-width: 100%;
+  }
+  .footer-col-quick-links,
+  .footer-col-contact,
+  .footer-col-get-started {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    padding: 24px 0;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 14px 16px;
+  }
+  .btn-nav-login {
+    display: none;
+  }
+  .hero {
+    padding: 32px 16px;
+  }
+  .hero-content h1 {
+    font-size: 30px;
+  }
+  .word-box {
+    width: 190px;
+  }
+  .hero-image-container {
+    max-width: 280px;
+    height: 210px;
+  }
+  .services-section,
+  .about-section,
+  .pricing-section,
+  .testimonials-section {
+    padding: 40px 16px;
+  }
+  .contact-section {
+    padding: 40px 16px;
+  }
+  .contact-content-parent {
+    padding: 20px 14px;
+  }
+  .contact-heading h2 {
+    font-size: 26px;
+  }
+  .site-footer {
+    padding: 28px 16px 0;
+  }
+  .pricing-grid {
+    max-width: 100%;
+  }
+  .services-header h2 {
+    font-size: 26px;
+  }
+  .about-section {
+    text-align: center;
+    align-items: center;
+  }
+  .about-kicker {
+    justify-content: center;
+  }
+  .about-content h2 {
+    font-size: 24px;
+  }
+  .about-content p {
+    font-size: 15px;
+  }
+  .about-images-mobile {
+    max-width: 100%;
+  }
+  .testimonials-heading h2 {
+    font-size: 26px;
+  }
+  .pricing-heading {
+    font-size: 26px;
+  }
+}
+</file>
+
+</files>
